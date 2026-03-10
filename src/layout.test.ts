@@ -149,14 +149,16 @@ describe('prepare invariants', () => {
     expect(narrow.lines.map(line => line.text)).toEqual(['foo trans-', 'atlantic'])
     expect(layout(prefixed, softBreakWidth, LINE_HEIGHT).lineCount).toBe(narrow.lineCount)
 
-    const continuePastSoftBreakWidth =
-      prepared.widths[0]! +
-      prepared.breakableWidths[2]![0]! +
-      prepared.breakableWidths[2]![1]! +
+    const continuedSoftBreakWidth =
+      prefixed.widths[0]! +
+      prefixed.widths[1]! +
+      prefixed.widths[2]! +
+      prefixed.breakableWidths[4]![0]! +
+      prefixed.discretionaryHyphenWidth +
       0.1
-    const continued = layoutWithLines(prepared, continuePastSoftBreakWidth, LINE_HEIGHT)
-    expect(continued.lines.map(line => line.text)).toEqual(['transat', 'lantic'])
-    expect(layout(prepared, continuePastSoftBreakWidth, LINE_HEIGHT).lineCount).toBe(continued.lineCount)
+    const continued = layoutWithLines(prefixed, continuedSoftBreakWidth, LINE_HEIGHT)
+    expect(continued.lines.map(line => line.text)).toEqual(['foo trans-a', 'tlantic'])
+    expect(layout(prefixed, continuedSoftBreakWidth, LINE_HEIGHT).lineCount).toBe(continued.lineCount)
   })
 
   test('keeps closing punctuation attached to the preceding word', () => {

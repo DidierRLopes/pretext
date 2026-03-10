@@ -177,6 +177,7 @@ const requestId = params.get('requestId') ?? undefined
 const requestedCorpusId = params.get('id')
 const requestedWidth = Number.parseInt(params.get('width') ?? '', 10)
 const diagnosticMode = params.get('diagnostic') ?? 'light'
+const requestedDiagnosticMethod = params.get('method')
 const requestedFont = params.get('font')
 const requestedLineHeight = Number.parseInt(params.get('lineHeight') ?? '', 10)
 
@@ -691,9 +692,16 @@ function addDiagnostics(
     !requiresRangeProbe &&
     direction !== 'rtl' &&
     Math.abs(probeHeight - normalizedHeight) <= Math.max(1, lineHeight / 2)
-  const browserResult = probeReliable
+  const forcedMethod = requestedDiagnosticMethod === 'span' || requestedDiagnosticMethod === 'range'
+    ? requestedDiagnosticMethod
+    : null
+  const browserResult = forcedMethod === 'span'
     ? probeResult
-    : getBrowserLinesFromRange(prepared, diagnosticDiv, normalizedText, font)
+    : forcedMethod === 'range'
+      ? getBrowserLinesFromRange(prepared, diagnosticDiv, normalizedText, font)
+      : probeReliable
+        ? probeResult
+        : getBrowserLinesFromRange(prepared, diagnosticDiv, normalizedText, font)
   const browserLines = browserResult.lines
 
   let mismatchCount = 0
@@ -736,7 +744,13 @@ function addDiagnostics(
     ...report,
     predictedLineCount: ourLines.length,
     browserLineCount: browserLines.length,
-    browserLineMethod: probeReliable ? 'span-probe' : 'range',
+    browserLineMethod: forcedMethod === 'span'
+      ? 'span-probe'
+      : forcedMethod === 'range'
+        ? 'range'
+        : probeReliable
+          ? 'span-probe'
+          : 'range',
     probeHeight,
     normalizedHeight,
     mismatchCount,

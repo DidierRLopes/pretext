@@ -18,6 +18,7 @@ type CorpusMeta = {
 type CorpusOverrideOptions = {
   font: string | null
   lineHeight: number | null
+  method: 'span' | 'range' | null
 }
 
 type CorpusReport = {
@@ -168,6 +169,9 @@ function appendOverrideParams(url: string, overrides: CorpusOverrideOptions): st
   if (overrides.lineHeight !== null) {
     nextUrl += `&lineHeight=${overrides.lineHeight}`
   }
+  if (overrides.method !== null) {
+    nextUrl += `&method=${encodeURIComponent(overrides.method)}`
+  }
   return nextUrl
 }
 
@@ -245,9 +249,14 @@ let serverProcess: ChildProcess | null = null
 const browser = parseBrowser(parseStringFlag('browser'))
 const port = parseNumberFlag('port', Number.parseInt(process.env['CORPUS_CHECK_PORT'] ?? '3210', 10))
 const timeoutMs = parseNumberFlag('timeout', Number.parseInt(process.env['CORPUS_CHECK_TIMEOUT_MS'] ?? '180000', 10))
+const requestedMethod = parseStringFlag('method')
+if (requestedMethod !== null && requestedMethod !== 'span' && requestedMethod !== 'range') {
+  throw new Error(`Unsupported --method ${requestedMethod}; expected span or range`)
+}
 const overrideOptions: CorpusOverrideOptions = {
   font: parseStringFlag('font'),
   lineHeight: parseOptionalNumberFlag('lineHeight'),
+  method: requestedMethod as 'span' | 'range' | null,
 }
 const sources = await loadSources()
 const id = parseStringFlag('id')

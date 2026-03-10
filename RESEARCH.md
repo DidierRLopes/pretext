@@ -745,6 +745,19 @@ Current state after those fixes:
 - the remaining mixed miss is a single synthetic soft-hyphen width (`710px`) that still needs a cleaner explanation
   before changing the engine again
 
+Further SHY work showed two useful things:
+- `layoutWithLines()` needed to represent a discretionary hyphen inserted before a partial continuation
+  of the following segment, not just as a line-ending suffix
+- `/corpus` and `bun run corpus-check` now accept `method=span|range` so we can compare extraction
+  strategies directly instead of assuming one is always right
+
+Current diagnostic read on the remaining `710px` mixed miss:
+- the overall coarse sweep is still `60/61 exact`
+- `--method=range` and `--method=span` both point at the same soft-hyphen line, but disagree on
+  exactly how much of `trans­atlantic` the browser kept
+- that means the canary is still real, but the extractor is now part of the uncertainty; do not
+  overfit the engine based on only one of those two views
+
 ## Thai corpus note
 
 Adding a Thai prose corpus (`นิทานเวตาล/เรื่องที่ 1`) exposed a different class than the Arabic/Hebrew work:

@@ -15,6 +15,7 @@ Internal notes for contributors and agents. Use `README.md` as the public source
 - `bun run gatsby-check` / `:safari` — Gatsby canary diagnostics
 - `bun run gatsby-sweep --start=300 --end=900 --step=10` — fast Gatsby width sweep; add `--diagnose` to rerun mismatching widths through the slow checker
 - `bun run probe-check --text='...' --width=320 --font='20px ...' --dir=rtl --lang=ar --method=range|span` — isolate a single snippet in the real browser and choose the browser-line extraction method explicitly
+- `bun run corpus-check --id=mixed-app-text --diagnose --method=span|range 710` — compare corpus-line extraction methods directly when a mismatch may be diagnostic-tool sensitive
 
 ### Important files
 
@@ -70,6 +71,7 @@ Internal notes for contributors and agents. Use `README.md` as the public source
 - URL-like runs such as `https://...` / `www...` are currently modeled as two breakable preprocessing units when a query exists: the path through the query introducer (`?`), then the query string. This is intentionally narrow and exists to stop obviously bad mid-path URL breaks without forcing the whole query string to fragment character-by-character.
 - Mixed app text also pulled in two more keep-worthy preprocessing rules: contextual escaped quote clusters like `\"word\"`, and numeric/time-range runs like `२४×७` / `7:00-9:00`.
 - For Southeast Asian scripts or mixed text containing Thai/Lao/Khmer/Myanmar, trust the `Range`-based corpus diagnostics over span-probing; span units can perturb line breaking there.
+- That rule now has one explicit caveat: the remaining mixed-app `710px` soft-hyphen miss is extractor-sensitive. Compare `--method=span` and `--method=range` before changing the engine, and do not assume either extractor is the whole truth by itself.
 - Khmer anchor widths were exact in both Chrome and Safari, and a 9-sample Chrome sweep was exact. The full `step=10` sweep was slow enough to be annoying, so use `--samples=<n>` first unless you specifically need every width.
 - The corpus diagnostics should derive our candidate lines from `layoutWithLines()`, not from a second local line-walker. That avoids SHY and future custom-break drift between the hot path and the diagnostic path.
 - Current line-fit tolerance is `0.005` for Chromium/Gecko and `1/64` for Safari/WebKit. That bump was justified by the remaining Arabic fine-width field and did not move the solved browser corpus or Gatsby coarse canary.

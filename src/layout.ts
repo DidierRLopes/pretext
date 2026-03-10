@@ -1361,7 +1361,7 @@ type InternalLayoutLine = {
   endSegmentIndex: number
   endGraphemeIndex: number
   width: number
-  endsWithDiscretionaryHyphen: boolean
+  discretionaryHyphenBeforeSegmentIndex: number
 }
 
 function countPreparedLines(prepared: PreparedText, maxWidth: number): number {
@@ -1456,7 +1456,7 @@ function walkPreparedLines(
     endSegmentIndex = lineEndSegmentIndex,
     endGraphemeIndex = lineEndGraphemeIndex,
     width = lineW,
-    endsWithDiscretionaryHyphen = false,
+    discretionaryHyphenBeforeSegmentIndex = -1,
   ): void {
     lineCount++
     onLine?.({
@@ -1465,7 +1465,7 @@ function walkPreparedLines(
       endSegmentIndex,
       endGraphemeIndex,
       width,
-      endsWithDiscretionaryHyphen,
+      discretionaryHyphenBeforeSegmentIndex,
     })
     lineW = 0
     hasContent = false
@@ -1536,8 +1536,13 @@ function walkPreparedLines(
 
     let fitCount = 0
     let fittedWidth = lineW
-    while (fitCount < gWidths.length && fittedWidth + gWidths[fitCount]! <= maxWidth + lineFitEpsilon) {
-      fittedWidth += gWidths[fitCount]!
+    while (fitCount < gWidths.length) {
+      const nextWidth = fittedWidth + gWidths[fitCount]!
+      const nextLineWidth = fitCount + 1 < gWidths.length
+        ? nextWidth + discretionaryHyphenWidth
+        : nextWidth
+      if (nextLineWidth > maxWidth + lineFitEpsilon) break
+      fittedWidth = nextWidth
       fitCount++
     }
 
@@ -1554,7 +1559,7 @@ function walkPreparedLines(
       return true
     }
 
-    emitCurrentLine()
+    emitCurrentLine(segmentIndex, fitCount, fittedWidth + discretionaryHyphenWidth, segmentIndex)
     appendBreakableSegmentFrom(segmentIndex, fitCount)
     return true
   }
@@ -1598,7 +1603,12 @@ function walkPreparedLines(
       }
 
       if (pendingSoftBreakSegmentIndex >= 0 && pendingSoftBreakWidth <= maxWidth + lineFitEpsilon) {
-        emitCurrentLine(pendingSoftBreakSegmentIndex, 0, pendingSoftBreakWidth, true)
+        emitCurrentLine(
+          pendingSoftBreakSegmentIndex,
+          0,
+          pendingSoftBreakWidth,
+          pendingSoftBreakSegmentIndex,
+        )
         if (w > maxWidth && breakableWidths[i] !== null) {
           appendBreakableSegment(i)
         } else {
@@ -1674,12 +1684,19 @@ function buildLineTextFromRange(
   startGraphemeIndex: number,
   endSegmentIndex: number,
   endGraphemeIndex: number,
-  endsWithDiscretionaryHyphen: boolean,
+  discretionaryHyphenBeforeSegmentIndex: number,
 ): string {
   let text = ''
 
+  function appendDiscretionaryHyphenBefore(segmentIndex: number): void {
+    if (discretionaryHyphenBeforeSegmentIndex === segmentIndex) {
+      text += '-'
+    }
+  }
+
   for (let i = startSegmentIndex; i < endSegmentIndex; i++) {
     if (kinds[i] === 'soft-hyphen') continue
+    appendDiscretionaryHyphenBefore(i)
     if (i === startSegmentIndex && startGraphemeIndex > 0) {
       text += getSegmentGraphemes(i, segments, cache).slice(startGraphemeIndex).join('')
     } else {
@@ -1688,13 +1705,12 @@ function buildLineTextFromRange(
   }
 
   if (endGraphemeIndex > 0) {
+    appendDiscretionaryHyphenBefore(endSegmentIndex)
     text += getSegmentGraphemes(endSegmentIndex, segments, cache).slice(
       startSegmentIndex === endSegmentIndex ? startGraphemeIndex : 0,
       endGraphemeIndex,
     ).join('')
-  }
-
-  if (endsWithDiscretionaryHyphen) {
+  } else if (discretionaryHyphenBeforeSegmentIndex === endSegmentIndex) {
     text += '-'
   }
 
@@ -1720,7 +1736,7 @@ export function layoutWithLines(prepared: PreparedTextWithSegments, maxWidth: nu
         line.startGraphemeIndex,
         line.endSegmentIndex,
         line.endGraphemeIndex,
-        line.endsWithDiscretionaryHyphen,
+        line.discretionaryHyphenBeforeSegmentIndex,
       ),
       width: line.width,
       start: {
