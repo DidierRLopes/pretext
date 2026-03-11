@@ -232,5 +232,23 @@
     "lines": 171,
     "acquired_via": "parse",
     "notes": "Hebrew travelogue stress corpus from Wikisource, trimmed to the fully transcribed portion with editorial bracket notes removed."
+  },
+  {
+    "id": "ur-chughd",
+    "language": "ur",
+    "direction": "rtl",
+    "title": "چغد",
+    "source_url": "https://wikisource.org/wiki/%DA%86%D8%BA%D8%AF_(%D8%A7%D9%81%D8%B3%D8%A7%D9%86%DB%81)",
+    "output": "corpora/ur-chughd.txt",
+    "font_family": "\"Noto Nastaliq Urdu\", \"DecoType Nastaleeq Urdu UI\", \"Geeza Pro\", serif",
+    "font_size_px": 20,
+    "line_height_px": 38,
+    "default_width": 600,
+    "min_width": 300,
+    "max_width": 900,
+    "characters": 13391,
+    "lines": 67,
+    "acquired_via": "parse",
+    "notes": "Urdu prose stress corpus from Wikisource, extracted from article paragraphs and stripped of header scaffolding and numbered section markers."
   }
 ]

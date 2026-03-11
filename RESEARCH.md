@@ -12,6 +12,7 @@ This log is historical. The current practical steering picture is:
 
 - Japanese now has two real canaries (`羅生門`, `蜘蛛の糸`), both clean at anchor widths and both still exposing a small positive one-line field on broader Chrome sweeps.
 - Myanmar still has two real canaries with residual Chrome/Safari disagreement around quote/follower-style classes, so it remains the main unresolved Southeast Asian frontier.
+- Urdu now has a real Nastaliq/Naskh canary (`چغد`) with the same narrow-width negative field in Chrome and Safari, so it is clearly measuring a shaping/context class rather than dirty data or a browser-only quirk.
 - Arabic coarse corpora are clean; the remaining work there is mostly a fine-width edge-fit class, not the old preprocessing/corpus-hygiene problems.
 - Mixed app text still matters because it catches product-shaped classes that books miss, especially soft-hyphen and extractor-sensitive cases.
 

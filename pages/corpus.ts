@@ -18,6 +18,7 @@ import koUnsuJohEunNal from '../corpora/ko-unsu-joh-eun-nal.txt' with { type: 't
 import mixedAppText from '../corpora/mixed-app-text.txt' with { type: 'text' }
 import thNithanVetalStory1 from '../corpora/th-nithan-vetal-story-1.txt' with { type: 'text' }
 import thNithanVetalStory7 from '../corpora/th-nithan-vetal-story-7.txt' with { type: 'text' }
+import urChughd from '../corpora/ur-chughd.txt' with { type: 'text' }
 
 type CorpusMeta = {
   id: string
@@ -896,6 +897,8 @@ async function loadText(meta: CorpusMeta): Promise<string> {
       return thNithanVetalStory1
     case 'th-nithan-vetal-story-7':
       return thNithanVetalStory7
+    case 'ur-chughd':
+      return urChughd
     default:
       throw new Error(`No bundled text import for corpus ${meta.id}`)
   }

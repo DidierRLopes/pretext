@@ -85,6 +85,12 @@ Current bundle:
   - URL: <https://he.wikisource.org/wiki/%D7%9E%D7%A1%D7%A2%D7%95%D7%AA_%D7%91%D7%A0%D7%99%D7%9E%D7%99%D7%9F_%D7%9E%D7%98%D7%95%D7%93%D7%9C%D7%94>
   - Acquisition: Wikisource `parse` API, trimmed to the fully transcribed portion with editorial bracket notes removed
 
+- `ur-chughd.txt`
+  - Language: Urdu
+  - Source: سعادت حسن منٹو, `چغد`
+  - URL: <https://wikisource.org/wiki/%DA%86%D8%BA%D8%AF_(%D8%A7%D9%81%D8%B3%D8%A7%D9%86%DB%81)>
+  - Acquisition: Wikisource `parse` API, extracted from prose paragraphs only and stripped of header scaffolding and numbered section markers
+
 Machine-readable metadata lives in `sources.json`.
 
 Current sweep status lives in `STATUS.md`.

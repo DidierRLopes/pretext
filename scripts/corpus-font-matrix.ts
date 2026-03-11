@@ -251,6 +251,20 @@ const FONT_MATRIX: Record<string, FontVariant[]> = {
       lineHeight: 32,
     },
   ],
+  'ur-chughd': [
+    {
+      id: 'default',
+      label: 'Noto Nastaliq Urdu',
+      font: '20px "Noto Nastaliq Urdu", "DecoType Nastaleeq Urdu UI", "Geeza Pro", serif',
+      lineHeight: 38,
+    },
+    {
+      id: 'geeza-pro',
+      label: 'Geeza Pro',
+      font: '20px "Geeza Pro", "Noto Nastaliq Urdu", serif',
+      lineHeight: 34,
+    },
+  ],
 }
 
 function parseStringFlag(name: string): string | null {

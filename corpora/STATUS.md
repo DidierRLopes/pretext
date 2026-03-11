@@ -38,6 +38,7 @@ Conventions:
 | `km-prachum-reuang-preng-khmer-volume-7-stories-1-10` | Khmer | exact | exact | `9/9 exact` | not fully rerun | full `step=10` is slower; sampled check is the preferred first pass |
 | `my-cunning-heron-teacher` | Myanmar | exact | exact at anchors | `9/9 exact` | `56/61 exact` | real residual Myanmar canary; quote/follower and phrase-break classes remain |
 | `my-bad-deeds-return-to-you-teacher` | Myanmar | exact | exact | `8/9 exact` | `57/61 exact` | healthier than the first Myanmar text, but still shows the same broad quote+follower class in Chrome |
+| `ur-chughd` | Urdu | exact at `600 / 800`, `-76px` at `300` | exact at `600 / 800`, `-76px` at `300` | `4/9 exact` | `31/61 exact` | real Nastaliq/Naskh canary; broad negative field at narrow widths and local shaping/context drift |
 | `hi-eidgah` | Hindi | exact | not recently rerun | n/a | `61/61 exact` | Hindi coarse corpus is clean |
 | `ar-risalat-al-ghufran-part-1` | Arabic | exact | exact at key sentinels | n/a | `61/61 exact` | Arabic coarse corpus is clean; fine sweep still has a small positive one-line field |
 | `ar-al-bukhala` | Arabic | exact | exact at anchors | not recently rerun | not fully rerun | large second Arabic canary; anchors are clean |
@@ -51,6 +52,7 @@ These are the main "harder than coarse step=10" canaries worth remembering.
 |---|---:|---|
 | `ar-risalat-al-ghufran-part-1` | `594/601 exact` | remaining misses are one-line positive edge-fit cases |
 | `my-cunning-heron-teacher` | not fully mapped at `step=1` | current useful sentinels are the shared `350` and `690` classes |
+| `ur-chughd` | not fully mapped at `step=1` | first narrow-width mismatch shows real local width/context drift, not dirty data |
 
 ## Font Matrix Notes
 
@@ -69,6 +71,7 @@ These are sampled, not exhaustive.
 | `he-masaot-binyamin-metudela` | clean on sampled matrix | `Times New Roman`, `SF Hebrew` |
 | `my-cunning-heron-teacher` | clean on sampled matrix | `Myanmar MN`, `Myanmar Sangam MN`, `Noto Sans Myanmar` |
 | `my-bad-deeds-return-to-you-teacher` | one sampled miss | `Myanmar Sangam MN` had `-32px` at `300px`; `Myanmar MN` and `Noto Sans Myanmar` stayed exact |
+| `ur-chughd` | sampled matrix has a real narrow field | `Noto Nastaliq Urdu` was `2/5 exact`; `Geeza Pro` improved to `3/5 exact` but kept the same narrow negative field |
 
 ## Recompute
 
@@ -82,5 +85,8 @@ bun run corpus-sweep --id=ja-kumo-no-ito --start=300 --end=900 --step=10
 bun run corpus-sweep --id=ja-rashomon --start=300 --end=900 --step=10
 bun run corpus-sweep --id=my-cunning-heron-teacher --start=300 --end=900 --step=10
 bun run corpus-sweep --id=my-bad-deeds-return-to-you-teacher --samples=9
+bun run corpus-check --id=ur-chughd 300 600 800
+bun run corpus-sweep --id=ur-chughd --start=300 --end=900 --step=10
 bun run corpus-font-matrix --id=my-bad-deeds-return-to-you-teacher --samples=5
+bun run corpus-font-matrix --id=ur-chughd --samples=5
 ```

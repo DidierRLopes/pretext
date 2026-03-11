@@ -10,6 +10,7 @@ import myBadDeedsReturnToYouTeacher from '../corpora/my-bad-deeds-return-to-you-
 import myCunningHeronTeacher from '../corpora/my-cunning-heron-teacher.txt' with { type: 'text' }
 import koUnsuJohEunNal from '../corpora/ko-unsu-joh-eun-nal.txt' with { type: 'text' }
 import thNithanVetalStory1 from '../corpora/th-nithan-vetal-story-1.txt' with { type: 'text' }
+import urChughd from '../corpora/ur-chughd.txt' with { type: 'text' }
 
 const COUNT = 500
 const FONT_FAMILY = '"Helvetica Neue", Helvetica, Arial, sans-serif'
@@ -110,6 +111,15 @@ const CORPORA = [
     text: myBadDeedsReturnToYouTeacher,
     font: '20px "Myanmar MN", "Myanmar Sangam MN", "Noto Sans Myanmar", serif',
     lineHeight: 32,
+    width: 300,
+    sampleWidths: [240, 300, 360] as const,
+  },
+  {
+    id: 'ur-chughd',
+    label: 'Urdu prose',
+    text: urChughd,
+    font: '20px "Noto Nastaliq Urdu", "DecoType Nastaleeq Urdu UI", "Geeza Pro", serif',
+    lineHeight: 38,
     width: 300,
     sampleWidths: [240, 300, 360] as const,
   },
