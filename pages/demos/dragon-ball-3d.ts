@@ -13,8 +13,89 @@ import {
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
-import gokuModelUrl from '../assets/goku-rigged.glb'
-import jirenModelUrl from '../assets/jiren-rigged.glb'
+import gokuModelUrl from '../assets/son-goku-fortnite/scene.gltf'
+import gokuSceneBinUrl from '../assets/son-goku-fortnite/scene.bin'
+import gokuBodyBaseColorUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Body_40b7234e_baseColor.png'
+import gokuBodyMetallicRoughnessUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Body_40b7234e_metallicRoughness.png'
+import gokuBodyNormalUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Body_40b7234e_normal.png'
+import gokuBodySpecularUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Body_40b7234e_specularf0.png'
+import gokuHeadBaseColorUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Head_33411e45_baseColor.png'
+import gokuHeadMetallicRoughnessUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Head_33411e45_metallicRoughness.png'
+import gokuHeadNormalUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Head_33411e45_normal.png'
+import gokuHeadSpecularUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_Head_33411e45_specularf0.png'
+import gokuFaceAccBaseColorUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_FaceAcc_7f5073e0_baseColor.png'
+import gokuFaceAccNormalUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_FaceAcc_7f5073e0_normal.png'
+import gokuFaceAccSpecularUrl from '../assets/son-goku-fortnite/textures/M_MED_Stamina_FaceAcc_7f5073e0_specularf0.png'
+import jirenModelUrl from '../assets/jiren-sparking-zero/scene.gltf'
+import jirenSceneBinUrl from '../assets/jiren-sparking-zero/scene.bin'
+import jiren_MI_0930_00_00_BTS000_002_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS000.002_baseColor.png'
+import jiren_MI_0930_00_00_BTS000_002_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS000.002_emissive.png'
+import jiren_MI_0930_00_00_BTS000_002_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS000.002_metallicRoughness.png'
+import jiren_MI_0930_00_00_BTS000_002_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS000.002_normal.png'
+import jiren_MI_0930_00_00_BTS001_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS001.001_baseColor.png'
+import jiren_MI_0930_00_00_BTS001_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS001.001_emissive.png'
+import jiren_MI_0930_00_00_BTS001_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS001.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_BTS001_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS001.001_normal.png'
+import jiren_MI_0930_00_00_BTS010_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS010.001_baseColor.png'
+import jiren_MI_0930_00_00_BTS010_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS010.001_emissive.png'
+import jiren_MI_0930_00_00_BTS010_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS010.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_BTS010_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_BTS010.001_normal.png'
+import jiren_MI_0930_00_00_EYE000_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE000.001_baseColor.png'
+import jiren_MI_0930_00_00_EYE000_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE000.001_emissive.png'
+import jiren_MI_0930_00_00_EYE000_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE000.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_EYE000_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE000.001_normal.png'
+import jiren_MI_0930_00_00_EYE010_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE010.001_baseColor.png'
+import jiren_MI_0930_00_00_EYE010_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE010.001_emissive.png'
+import jiren_MI_0930_00_00_EYE010_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE010.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_EYE010_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_EYE010.001_normal.png'
+import jiren_MI_0930_00_00_FCE000_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE000.001_baseColor.png'
+import jiren_MI_0930_00_00_FCE000_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE000.001_emissive.png'
+import jiren_MI_0930_00_00_FCE000_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE000.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_FCE000_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE000.001_normal.png'
+import jiren_MI_0930_00_00_FCE001_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE001.001_baseColor.png'
+import jiren_MI_0930_00_00_FCE001_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE001.001_emissive.png'
+import jiren_MI_0930_00_00_FCE001_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE001.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_FCE001_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_FCE001.001_normal.png'
+import jiren_MI_0930_00_00_INR000_002_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR000.002_baseColor.png'
+import jiren_MI_0930_00_00_INR000_002_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR000.002_emissive.png'
+import jiren_MI_0930_00_00_INR000_002_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR000.002_metallicRoughness.png'
+import jiren_MI_0930_00_00_INR000_002_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR000.002_normal.png'
+import jiren_MI_0930_00_00_INR002_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR002.001_baseColor.png'
+import jiren_MI_0930_00_00_INR002_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR002.001_emissive.png'
+import jiren_MI_0930_00_00_INR002_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR002.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_INR002_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR002.001_normal.png'
+import jiren_MI_0930_00_00_INR010_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR010.001_baseColor.png'
+import jiren_MI_0930_00_00_INR010_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR010.001_emissive.png'
+import jiren_MI_0930_00_00_INR010_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR010.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_INR010_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR010.001_normal.png'
+import jiren_MI_0930_00_00_INR011_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR011.001_baseColor.png'
+import jiren_MI_0930_00_00_INR011_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR011.001_emissive.png'
+import jiren_MI_0930_00_00_INR011_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR011.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_INR011_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_INR011.001_normal.png'
+import jiren_MI_0930_00_00_SKN000_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN000.001_baseColor.png'
+import jiren_MI_0930_00_00_SKN000_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN000.001_emissive.png'
+import jiren_MI_0930_00_00_SKN000_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN000.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_SKN000_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN000.001_normal.png'
+import jiren_MI_0930_00_00_SKN001_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN001.001_baseColor.png'
+import jiren_MI_0930_00_00_SKN001_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN001.001_emissive.png'
+import jiren_MI_0930_00_00_SKN001_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN001.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_SKN001_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN001.001_normal.png'
+import jiren_MI_0930_00_00_SKN002_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN002.001_baseColor.png'
+import jiren_MI_0930_00_00_SKN002_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN002.001_emissive.png'
+import jiren_MI_0930_00_00_SKN002_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN002.001_metallicRoughness.png'
+import jiren_MI_0930_00_00_SKN002_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_0930_00_00_SKN002.001_normal.png'
+import jiren_MI_LNE000_005_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_LNE000.005_baseColor.png'
+import jiren_MI_LNE000_005_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_LNE000.005_emissive.png'
+import jiren_MI_LNE000_005_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_LNE000.005_metallicRoughness.png'
+import jiren_MI_LNE000_005_normalUrl from '../assets/jiren-sparking-zero/textures/MI_LNE000.005_normal.png'
+import jiren_MI_MTH001_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_MTH001.001_baseColor.png'
+import jiren_MI_MTH001_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_MTH001.001_emissive.png'
+import jiren_MI_MTH001_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_MTH001.001_metallicRoughness.png'
+import jiren_MI_MTH001_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_MTH001.001_normal.png'
+import jiren_MI_SWT000_001_baseColorUrl from '../assets/jiren-sparking-zero/textures/MI_SWT000.001_baseColor.png'
+import jiren_MI_SWT000_001_emissiveUrl from '../assets/jiren-sparking-zero/textures/MI_SWT000.001_emissive.png'
+import jiren_MI_SWT000_001_metallicRoughnessUrl from '../assets/jiren-sparking-zero/textures/MI_SWT000.001_metallicRoughness.png'
+import jiren_MI_SWT000_001_normalUrl from '../assets/jiren-sparking-zero/textures/MI_SWT000.001_normal.png'
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -152,6 +233,37 @@ type Phase =
   | { kind: 'kamehameha'; timer: number; who: 'goku' | 'both' }
 
 type RectObstacle = { x: number; y: number; w: number; h: number }
+type RigBones = {
+  hips: string
+  spine: string
+  chest: string
+  upperChest?: string
+  neck?: string
+  head: string
+  clavicleL?: string
+  upperArmL: string
+  foreArmL: string
+  handL?: string
+  clavicleR?: string
+  upperArmR: string
+  foreArmR: string
+  handR?: string
+  thighL: string
+  calfL: string
+  footL?: string
+  thighR: string
+  calfR: string
+  footR?: string
+}
+
+type BoneKey = keyof RigBones
+
+type RigProfile = {
+  bones: RigBones
+  modelPixelHeight: number
+  playBuiltInAnimation: boolean
+  uiTintMode: 'none' | 'hair' | 'head' | 'global'
+}
 
 // ---------------------------------------------------------------------------
 // State
@@ -756,257 +868,543 @@ function createToonGradient(): THREE.DataTexture {
 
 const toonGradient = createToonGradient()
 
+const GOKU_RIG_PROFILE: RigProfile = {
+  bones: {
+    hips: 'pelvis',
+    spine: 'spine_01',
+    chest: 'spine_03',
+    upperChest: 'spine_05',
+    neck: 'neck_02',
+    head: 'head',
+    clavicleL: 'clavicle_l',
+    upperArmL: 'upperarm_l',
+    foreArmL: 'lowerarm_l',
+    handL: 'hand_l',
+    clavicleR: 'clavicle_r',
+    upperArmR: 'upperarm_r',
+    foreArmR: 'lowerarm_r',
+    handR: 'hand_r',
+    thighL: 'thigh_l',
+    calfL: 'calf_l',
+    footL: 'foot_l',
+    thighR: 'thigh_r',
+    calfR: 'calf_r',
+    footR: 'foot_r',
+  },
+  modelPixelHeight: 170,
+  playBuiltInAnimation: false,
+  uiTintMode: 'global',
+}
+
+const JIREN_RIG_PROFILE: RigProfile = {
+  bones: {
+    hips: 'WAIST',
+    spine: 'SPINE1',
+    chest: 'SPINE2',
+    upperChest: 'SPINE3',
+    neck: 'NECK',
+    head: 'HEAD',
+    clavicleL: 'CLAVICLE_L',
+    upperArmL: 'SHOULDER_L',
+    foreArmL: 'ELBOW_L',
+    handL: 'WRIST_L',
+    clavicleR: 'CLAVICLE_R',
+    upperArmR: 'SHOULDER_R',
+    foreArmR: 'ELBOW_R',
+    handR: 'WRIST_R',
+    thighL: 'THIGH_L',
+    calfL: 'CLANK_L',
+    footL: 'CLANKROLL_L',
+    thighR: 'THIGH_R',
+    calfR: 'CLANK_R',
+    footR: 'CLANKROLL_R',
+  },
+  modelPixelHeight: 160,
+  playBuiltInAnimation: false,
+  uiTintMode: 'none',
+}
+
+const GOKU_MODEL_ASSETS: Record<string, string> = {
+  'scene.bin': gokuSceneBinUrl,
+  'textures/M_MED_Stamina_Body_40b7234e_baseColor.png': gokuBodyBaseColorUrl,
+  'textures/M_MED_Stamina_Body_40b7234e_metallicRoughness.png': gokuBodyMetallicRoughnessUrl,
+  'textures/M_MED_Stamina_Body_40b7234e_normal.png': gokuBodyNormalUrl,
+  'textures/M_MED_Stamina_Body_40b7234e_specularf0.png': gokuBodySpecularUrl,
+  'textures/M_MED_Stamina_Head_33411e45_baseColor.png': gokuHeadBaseColorUrl,
+  'textures/M_MED_Stamina_Head_33411e45_metallicRoughness.png': gokuHeadMetallicRoughnessUrl,
+  'textures/M_MED_Stamina_Head_33411e45_normal.png': gokuHeadNormalUrl,
+  'textures/M_MED_Stamina_Head_33411e45_specularf0.png': gokuHeadSpecularUrl,
+  'textures/M_MED_Stamina_FaceAcc_7f5073e0_baseColor.png': gokuFaceAccBaseColorUrl,
+  'textures/M_MED_Stamina_FaceAcc_7f5073e0_normal.png': gokuFaceAccNormalUrl,
+  'textures/M_MED_Stamina_FaceAcc_7f5073e0_specularf0.png': gokuFaceAccSpecularUrl,
+  'M_MED_Stamina_Body_40b7234e_baseColor.png': gokuBodyBaseColorUrl,
+  'M_MED_Stamina_Body_40b7234e_metallicRoughness.png': gokuBodyMetallicRoughnessUrl,
+  'M_MED_Stamina_Body_40b7234e_normal.png': gokuBodyNormalUrl,
+  'M_MED_Stamina_Body_40b7234e_specularf0.png': gokuBodySpecularUrl,
+  'M_MED_Stamina_Head_33411e45_baseColor.png': gokuHeadBaseColorUrl,
+  'M_MED_Stamina_Head_33411e45_metallicRoughness.png': gokuHeadMetallicRoughnessUrl,
+  'M_MED_Stamina_Head_33411e45_normal.png': gokuHeadNormalUrl,
+  'M_MED_Stamina_Head_33411e45_specularf0.png': gokuHeadSpecularUrl,
+  'M_MED_Stamina_FaceAcc_7f5073e0_baseColor.png': gokuFaceAccBaseColorUrl,
+  'M_MED_Stamina_FaceAcc_7f5073e0_normal.png': gokuFaceAccNormalUrl,
+  'M_MED_Stamina_FaceAcc_7f5073e0_specularf0.png': gokuFaceAccSpecularUrl,
+}
+
+const JIREN_MODEL_ASSETS: Record<string, string> = {
+  'scene.bin': jirenSceneBinUrl,
+  'textures/MI_0930_00_00_BTS000.002_baseColor.png': jiren_MI_0930_00_00_BTS000_002_baseColorUrl,
+  'textures/MI_0930_00_00_BTS000.002_emissive.png': jiren_MI_0930_00_00_BTS000_002_emissiveUrl,
+  'textures/MI_0930_00_00_BTS000.002_metallicRoughness.png': jiren_MI_0930_00_00_BTS000_002_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_BTS000.002_normal.png': jiren_MI_0930_00_00_BTS000_002_normalUrl,
+  'textures/MI_0930_00_00_BTS001.001_baseColor.png': jiren_MI_0930_00_00_BTS001_001_baseColorUrl,
+  'textures/MI_0930_00_00_BTS001.001_emissive.png': jiren_MI_0930_00_00_BTS001_001_emissiveUrl,
+  'textures/MI_0930_00_00_BTS001.001_metallicRoughness.png': jiren_MI_0930_00_00_BTS001_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_BTS001.001_normal.png': jiren_MI_0930_00_00_BTS001_001_normalUrl,
+  'textures/MI_0930_00_00_BTS010.001_baseColor.png': jiren_MI_0930_00_00_BTS010_001_baseColorUrl,
+  'textures/MI_0930_00_00_BTS010.001_emissive.png': jiren_MI_0930_00_00_BTS010_001_emissiveUrl,
+  'textures/MI_0930_00_00_BTS010.001_metallicRoughness.png': jiren_MI_0930_00_00_BTS010_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_BTS010.001_normal.png': jiren_MI_0930_00_00_BTS010_001_normalUrl,
+  'textures/MI_0930_00_00_EYE000.001_baseColor.png': jiren_MI_0930_00_00_EYE000_001_baseColorUrl,
+  'textures/MI_0930_00_00_EYE000.001_emissive.png': jiren_MI_0930_00_00_EYE000_001_emissiveUrl,
+  'textures/MI_0930_00_00_EYE000.001_metallicRoughness.png': jiren_MI_0930_00_00_EYE000_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_EYE000.001_normal.png': jiren_MI_0930_00_00_EYE000_001_normalUrl,
+  'textures/MI_0930_00_00_EYE010.001_baseColor.png': jiren_MI_0930_00_00_EYE010_001_baseColorUrl,
+  'textures/MI_0930_00_00_EYE010.001_emissive.png': jiren_MI_0930_00_00_EYE010_001_emissiveUrl,
+  'textures/MI_0930_00_00_EYE010.001_metallicRoughness.png': jiren_MI_0930_00_00_EYE010_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_EYE010.001_normal.png': jiren_MI_0930_00_00_EYE010_001_normalUrl,
+  'textures/MI_0930_00_00_FCE000.001_baseColor.png': jiren_MI_0930_00_00_FCE000_001_baseColorUrl,
+  'textures/MI_0930_00_00_FCE000.001_emissive.png': jiren_MI_0930_00_00_FCE000_001_emissiveUrl,
+  'textures/MI_0930_00_00_FCE000.001_metallicRoughness.png': jiren_MI_0930_00_00_FCE000_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_FCE000.001_normal.png': jiren_MI_0930_00_00_FCE000_001_normalUrl,
+  'textures/MI_0930_00_00_FCE001.001_baseColor.png': jiren_MI_0930_00_00_FCE001_001_baseColorUrl,
+  'textures/MI_0930_00_00_FCE001.001_emissive.png': jiren_MI_0930_00_00_FCE001_001_emissiveUrl,
+  'textures/MI_0930_00_00_FCE001.001_metallicRoughness.png': jiren_MI_0930_00_00_FCE001_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_FCE001.001_normal.png': jiren_MI_0930_00_00_FCE001_001_normalUrl,
+  'textures/MI_0930_00_00_INR000.002_baseColor.png': jiren_MI_0930_00_00_INR000_002_baseColorUrl,
+  'textures/MI_0930_00_00_INR000.002_emissive.png': jiren_MI_0930_00_00_INR000_002_emissiveUrl,
+  'textures/MI_0930_00_00_INR000.002_metallicRoughness.png': jiren_MI_0930_00_00_INR000_002_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_INR000.002_normal.png': jiren_MI_0930_00_00_INR000_002_normalUrl,
+  'textures/MI_0930_00_00_INR002.001_baseColor.png': jiren_MI_0930_00_00_INR002_001_baseColorUrl,
+  'textures/MI_0930_00_00_INR002.001_emissive.png': jiren_MI_0930_00_00_INR002_001_emissiveUrl,
+  'textures/MI_0930_00_00_INR002.001_metallicRoughness.png': jiren_MI_0930_00_00_INR002_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_INR002.001_normal.png': jiren_MI_0930_00_00_INR002_001_normalUrl,
+  'textures/MI_0930_00_00_INR010.001_baseColor.png': jiren_MI_0930_00_00_INR010_001_baseColorUrl,
+  'textures/MI_0930_00_00_INR010.001_emissive.png': jiren_MI_0930_00_00_INR010_001_emissiveUrl,
+  'textures/MI_0930_00_00_INR010.001_metallicRoughness.png': jiren_MI_0930_00_00_INR010_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_INR010.001_normal.png': jiren_MI_0930_00_00_INR010_001_normalUrl,
+  'textures/MI_0930_00_00_INR011.001_baseColor.png': jiren_MI_0930_00_00_INR011_001_baseColorUrl,
+  'textures/MI_0930_00_00_INR011.001_emissive.png': jiren_MI_0930_00_00_INR011_001_emissiveUrl,
+  'textures/MI_0930_00_00_INR011.001_metallicRoughness.png': jiren_MI_0930_00_00_INR011_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_INR011.001_normal.png': jiren_MI_0930_00_00_INR011_001_normalUrl,
+  'textures/MI_0930_00_00_SKN000.001_baseColor.png': jiren_MI_0930_00_00_SKN000_001_baseColorUrl,
+  'textures/MI_0930_00_00_SKN000.001_emissive.png': jiren_MI_0930_00_00_SKN000_001_emissiveUrl,
+  'textures/MI_0930_00_00_SKN000.001_metallicRoughness.png': jiren_MI_0930_00_00_SKN000_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_SKN000.001_normal.png': jiren_MI_0930_00_00_SKN000_001_normalUrl,
+  'textures/MI_0930_00_00_SKN001.001_baseColor.png': jiren_MI_0930_00_00_SKN001_001_baseColorUrl,
+  'textures/MI_0930_00_00_SKN001.001_emissive.png': jiren_MI_0930_00_00_SKN001_001_emissiveUrl,
+  'textures/MI_0930_00_00_SKN001.001_metallicRoughness.png': jiren_MI_0930_00_00_SKN001_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_SKN001.001_normal.png': jiren_MI_0930_00_00_SKN001_001_normalUrl,
+  'textures/MI_0930_00_00_SKN002.001_baseColor.png': jiren_MI_0930_00_00_SKN002_001_baseColorUrl,
+  'textures/MI_0930_00_00_SKN002.001_emissive.png': jiren_MI_0930_00_00_SKN002_001_emissiveUrl,
+  'textures/MI_0930_00_00_SKN002.001_metallicRoughness.png': jiren_MI_0930_00_00_SKN002_001_metallicRoughnessUrl,
+  'textures/MI_0930_00_00_SKN002.001_normal.png': jiren_MI_0930_00_00_SKN002_001_normalUrl,
+  'textures/MI_LNE000.005_baseColor.png': jiren_MI_LNE000_005_baseColorUrl,
+  'textures/MI_LNE000.005_emissive.png': jiren_MI_LNE000_005_emissiveUrl,
+  'textures/MI_LNE000.005_metallicRoughness.png': jiren_MI_LNE000_005_metallicRoughnessUrl,
+  'textures/MI_LNE000.005_normal.png': jiren_MI_LNE000_005_normalUrl,
+  'textures/MI_MTH001.001_baseColor.png': jiren_MI_MTH001_001_baseColorUrl,
+  'textures/MI_MTH001.001_emissive.png': jiren_MI_MTH001_001_emissiveUrl,
+  'textures/MI_MTH001.001_metallicRoughness.png': jiren_MI_MTH001_001_metallicRoughnessUrl,
+  'textures/MI_MTH001.001_normal.png': jiren_MI_MTH001_001_normalUrl,
+  'textures/MI_SWT000.001_baseColor.png': jiren_MI_SWT000_001_baseColorUrl,
+  'textures/MI_SWT000.001_emissive.png': jiren_MI_SWT000_001_emissiveUrl,
+  'textures/MI_SWT000.001_metallicRoughness.png': jiren_MI_SWT000_001_metallicRoughnessUrl,
+  'textures/MI_SWT000.001_normal.png': jiren_MI_SWT000_001_normalUrl,
+}
+
 // ---------------------------------------------------------------------------
 // Bone-driven fight poses
 // ---------------------------------------------------------------------------
 
-const _q = new THREE.Quaternion()
+const _deltaQ = new THREE.Quaternion()
+const _targetQ = new THREE.Quaternion()
 const _e = new THREE.Euler()
 
-function setBone(skeleton: Record<string, THREE.Bone>, name: string, x: number, y: number, z: number, blend: number): void {
-  const bone = skeleton[name]
-  if (!bone) return
+function setRigBone(model: LoadedModel, key: BoneKey, x: number, y: number, z: number, blend: number): void {
+  const name = model.rig.bones[key]
+  if (name === undefined) return
+  const targets = model.rigTargets[name]
+  if (targets === undefined || targets.length === 0) return
   _e.set(x, y, z)
-  _q.setFromEuler(_e)
-  if (blend >= 1) {
-    bone.quaternion.copy(_q)
-  } else {
-    bone.quaternion.slerp(_q, blend)
+  _deltaQ.setFromEuler(_e)
+  for (const target of targets) {
+    _targetQ.copy(target.rest).multiply(_deltaQ)
+    if (blend >= 1) {
+      target.bone.quaternion.copy(_targetQ)
+    } else {
+      target.bone.quaternion.slerp(_targetQ, blend)
+    }
   }
 }
 
 function animateGokuBones(
-  skeleton: Record<string, THREE.Bone>,
+  model: LoadedModel,
   time: number,
   phaseKind: PhaseKind,
   phaseClock: number,
 ): void {
+  const pose = (key: BoneKey, x: number, y: number, z: number): void => {
+    setRigBone(model, key, x, y, z, 1)
+  }
+
   const breathe = Math.sin(time * 2.1) * 0.03
-  setBone(skeleton, 'mixamorig:Hips', 0.02 + breathe * 0.5, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Spine', 0.06 + breathe, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Spine1', 0.04 + breathe * 0.6, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Spine2', 0.02, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Head', -0.04 + Math.sin(time * 1.7) * 0.03, Math.sin(time * 1.2) * 0.03, 0, 1)
+  pose('hips', 0.02 + breathe * 0.5, 0, 0)
+  pose('spine', 0.06 + breathe, 0, 0)
+  pose('chest', 0.05 + breathe * 0.6, 0, 0)
+  pose('upperChest', 0.03, 0, 0)
+  pose('neck', 0.01, 0, 0)
+  pose('head', -0.04 + Math.sin(time * 1.7) * 0.03, Math.sin(time * 1.2) * 0.03, 0)
+  pose('clavicleL', 0.02, 0.02, 0.1)
+  pose('clavicleR', 0.02, -0.02, -0.1)
+  pose('handL', 0.08, 0.04, 0.08)
+  pose('handR', 0.08, -0.04, -0.08)
+  pose('footL', -0.04, 0, 0.03)
+  pose('footR', -0.04, 0, -0.03)
 
   switch (phaseKind) {
     case 'transform': {
       const rise = easeOutCubic(phaseClock / TRANSFORM_DURATION)
       const auraQuiver = Math.sin(time * 12.6) * (0.05 + rise * 0.04)
-      setBone(skeleton, 'mixamorig:Hips', -0.28 + rise * 0.24 + auraQuiver * 0.24, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', -0.16 + rise * 0.38 + auraQuiver, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', -0.1 + rise * 0.3 + auraQuiver * 0.6, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine2', -0.02 + rise * 0.18, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', 0.18 - rise * 0.38, Math.sin(time * 1.5) * 0.02, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.72 - rise * 0.18, 0.22, 0.98 + rise * 0.44, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.26, 1.34 - rise * 0.1, 0.12, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.62 - rise * 0.14, -0.26, -0.84 - rise * 0.52, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.24, -1.18 - rise * 0.16, -0.08, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.44 + rise * 0.26, 0, 0.18, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.2 + rise * 0.14, 0, -0.14, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.8 - rise * 0.42, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.46 - rise * 0.18, 0, 0, 1)
+      pose('hips', -0.18 + rise * 0.14 + auraQuiver * 0.2, 0, 0)
+      pose('spine', -0.08 + rise * 0.34 + auraQuiver * 0.8, 0, 0)
+      pose('chest', -0.04 + rise * 0.24 + auraQuiver * 0.5, 0, 0)
+      pose('upperChest', rise * 0.16, 0, 0)
+      pose('neck', -0.02 + rise * 0.08, 0, 0)
+      pose('head', 0.2 - rise * 0.34, Math.sin(time * 1.5) * 0.04, 0)
+      pose('clavicleL', 0.1, 0.1, 0.4 + rise * 0.14)
+      pose('clavicleR', 0.1, -0.1, -0.4 - rise * 0.14)
+      pose('upperArmL', 0.82 - rise * 0.24, 0.18, 0.78 + rise * 0.52)
+      pose('foreArmL', 0.36, 1.08 - rise * 0.16, 0.08)
+      pose('handL', 0.26, 0.14, 0.2 + rise * 0.16)
+      pose('upperArmR', 0.74 - rise * 0.18, -0.2, -0.72 - rise * 0.58)
+      pose('foreArmR', 0.3, -1.02 - rise * 0.18, -0.08)
+      pose('handR', 0.26, -0.14, -0.2 - rise * 0.16)
+      pose('thighL', -0.42 + rise * 0.24, 0, 0.14)
+      pose('calfL', 0.9 - rise * 0.48, 0, 0)
+      pose('footL', 0.14 - rise * 0.12, 0, 0.08)
+      pose('thighR', -0.18 + rise * 0.1, 0, -0.1)
+      pose('calfR', 0.5 - rise * 0.16, 0, 0)
+      pose('footR', 0.08 - rise * 0.08, 0, -0.08)
       break
     }
     case 'roam': {
       const weave = Math.sin(phaseClock * 4.2)
       const glide = Math.sin(phaseClock * 2.6 + 0.4) * 0.08
-      setBone(skeleton, 'mixamorig:Hips', 0.04, weave * 0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.12 + glide, weave * 0.14, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.08, weave * 0.1, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.08 + Math.sin(phaseClock * 2.2) * 0.04, weave * 0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.42 - weave * 0.08, 0.14, 1.24 + glide * 0.2, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.14, 1.12 + Math.max(0, -weave) * 0.2, 0.1, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.3 + weave * 0.1, -0.26, -1.06 - glide * 0.24, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.12, -0.88 - Math.max(0, weave) * 0.18, -0.12, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.24 + weave * 0.16, 0, 0.16, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.14 - weave * 0.16, 0, -0.14, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.34 + Math.max(0, -weave) * 0.24, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.28 + Math.max(0, weave) * 0.24, 0, 0, 1)
+      pose('hips', 0.04, weave * 0.08, 0)
+      pose('spine', 0.12 + glide, weave * 0.16, 0)
+      pose('chest', 0.08, weave * 0.12, 0)
+      pose('upperChest', 0.04, weave * 0.08, 0)
+      pose('neck', 0.01, weave * 0.04, 0)
+      pose('head', -0.08 + Math.sin(phaseClock * 2.2) * 0.04, weave * 0.06, 0)
+      pose('clavicleL', 0.08, 0.02, 0.22 + glide * 0.18)
+      pose('clavicleR', 0.04, -0.02, -0.2 - glide * 0.18)
+      pose('upperArmL', 0.42 - weave * 0.08, 0.14, 1.16 + glide * 0.22)
+      pose('foreArmL', 0.16, 1.04 + Math.max(0, -weave) * 0.26, 0.08)
+      pose('handL', 0.18, 0.08, 0.18 + Math.max(0, -weave) * 0.18)
+      pose('upperArmR', 0.3 + weave * 0.1, -0.26, -0.98 - glide * 0.26)
+      pose('foreArmR', 0.14, -0.84 - Math.max(0, weave) * 0.22, -0.1)
+      pose('handR', 0.16, -0.08, -0.18 - Math.max(0, weave) * 0.16)
+      pose('thighL', -0.24 + weave * 0.18, 0, 0.16)
+      pose('calfL', 0.36 + Math.max(0, -weave) * 0.28, 0, 0)
+      pose('footL', -0.12 + Math.max(0, -weave) * 0.24, 0, 0.1)
+      pose('thighR', -0.14 - weave * 0.18, 0, -0.14)
+      pose('calfR', 0.3 + Math.max(0, weave) * 0.28, 0, 0)
+      pose('footR', -0.1 + Math.max(0, weave) * 0.24, 0, -0.1)
       break
     }
     case 'approach': {
       const rush = easeInCubic(phaseClock / APPROACH_DURATION)
       const stride = Math.sin(phaseClock * 10.8)
-      setBone(skeleton, 'mixamorig:Hips', -0.04 + rush * 0.12, 0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.16 + rush * 0.18, 0.1 + stride * 0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.1 + rush * 0.1, 0.08 + stride * 0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.12, 0.04 + stride * 0.02, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.62, 0.06, 1.32 - Math.max(0, stride) * 0.34, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.12, 1.14, 0.1, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.18 - Math.max(0, -stride) * 0.16, -0.24, -1.18 - Math.max(0, -stride) * 0.38, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.08, -0.72 - Math.max(0, -stride) * 0.28, -0.08, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.22 + stride * 0.24, 0, 0.18, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.08 - stride * 0.24, 0, -0.18, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.36 + Math.max(0, -stride) * 0.28, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.32 + Math.max(0, stride) * 0.28, 0, 0, 1)
+      pose('hips', -0.04 + rush * 0.14, 0.1, 0)
+      pose('spine', 0.18 + rush * 0.22, 0.12 + stride * 0.04, 0)
+      pose('chest', 0.14 + rush * 0.16, 0.1 + stride * 0.06, 0)
+      pose('upperChest', 0.08 + rush * 0.08, 0.08, 0)
+      pose('neck', 0.02, 0.05, 0)
+      pose('head', -0.14, 0.06 + stride * 0.04, 0)
+      pose('clavicleL', 0.08, 0.04, 0.34)
+      pose('clavicleR', 0.04, -0.04, -0.26)
+      pose('upperArmL', 0.64, 0.04, 1.24 - Math.max(0, stride) * 0.4)
+      pose('foreArmL', 0.16, 1.04, 0.08)
+      pose('handL', 0.18, 0.08, 0.22)
+      pose('upperArmR', 0.22 - Math.max(0, -stride) * 0.18, -0.24, -1.08 - Math.max(0, -stride) * 0.46)
+      pose('foreArmR', 0.1, -0.62 - Math.max(0, -stride) * 0.32, -0.06)
+      pose('handR', 0.14, -0.08, -0.2)
+      pose('thighL', -0.24 + stride * 0.3, 0, 0.18)
+      pose('calfL', 0.38 + Math.max(0, -stride) * 0.32, 0, 0)
+      pose('footL', -0.16 + Math.max(0, -stride) * 0.3, 0, 0.12)
+      pose('thighR', -0.08 - stride * 0.3, 0, -0.18)
+      pose('calfR', 0.34 + Math.max(0, stride) * 0.3, 0, 0)
+      pose('footR', -0.14 + Math.max(0, stride) * 0.28, 0, -0.12)
       break
     }
     case 'clash': {
       const exchange = Math.sin(phaseClock * 12.2)
       const slip = Math.sin(phaseClock * 6.4 + 0.6)
-      setBone(skeleton, 'mixamorig:Hips', 0.02, slip * 0.12, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.22, slip * 0.22, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.14, slip * 0.2, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.14 + Math.abs(exchange) * 0.04, slip * 0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.14 - Math.max(0, exchange) * 0.48, -0.24 + slip * 0.08, -1.18 - Math.max(0, exchange) * 0.42, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.04, -0.64 - Math.max(0, exchange) * 0.62, -0.08, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.3 - Math.max(0, -exchange) * 0.42, 0.18 + slip * 0.06, 1.16 + Math.max(0, -exchange) * 0.46, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.08, 0.94 + Math.max(0, -exchange) * 0.6, 0.1, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.24 + exchange * 0.18, 0, 0.18, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.14 - exchange * 0.18, 0, -0.18, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.34 + Math.max(0, -exchange) * 0.2, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.3 + Math.max(0, exchange) * 0.2, 0, 0, 1)
+      pose('hips', 0.04, slip * 0.14, 0)
+      pose('spine', 0.24, slip * 0.24, 0)
+      pose('chest', 0.16, slip * 0.22, 0)
+      pose('upperChest', 0.1, slip * 0.18, 0)
+      pose('neck', 0.02, slip * 0.08, 0)
+      pose('head', -0.16 + Math.abs(exchange) * 0.06, slip * 0.12, 0)
+      pose('clavicleL', 0.12, 0.06, 0.28 + Math.max(0, -exchange) * 0.24)
+      pose('clavicleR', 0.08, -0.06, -0.26 - Math.max(0, exchange) * 0.26)
+      pose('upperArmR', 0.14 - Math.max(0, exchange) * 0.5, -0.22 + slip * 0.08, -1.12 - Math.max(0, exchange) * 0.52)
+      pose('foreArmR', 0.06, -0.58 - Math.max(0, exchange) * 0.72, -0.08)
+      pose('handR', 0.14, -0.1, -0.28 - Math.max(0, exchange) * 0.2)
+      pose('upperArmL', 0.32 - Math.max(0, -exchange) * 0.44, 0.16 + slip * 0.08, 1.08 + Math.max(0, -exchange) * 0.54)
+      pose('foreArmL', 0.1, 0.9 + Math.max(0, -exchange) * 0.68, 0.1)
+      pose('handL', 0.16, 0.1, 0.28 + Math.max(0, -exchange) * 0.2)
+      pose('thighL', -0.24 + exchange * 0.2, 0, 0.18)
+      pose('calfL', 0.34 + Math.max(0, -exchange) * 0.22, 0, 0)
+      pose('footL', -0.16 + Math.max(0, -exchange) * 0.2, 0, 0.1)
+      pose('thighR', -0.14 - exchange * 0.2, 0, -0.18)
+      pose('calfR', 0.3 + Math.max(0, exchange) * 0.22, 0, 0)
+      pose('footR', -0.14 + Math.max(0, exchange) * 0.2, 0, -0.1)
       break
     }
     case 'separate': {
       const recoil = 1 - easeOutCubic(phaseClock / SEPARATE_DURATION)
       const drift = Math.sin(phaseClock * 7.4) * recoil * 0.08
-      setBone(skeleton, 'mixamorig:Hips', -0.14, -0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', -0.08 + drift, -0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', -0.02 + drift * 0.6, -0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', 0.12, -0.02, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', -0.1, 0.08, 0.88, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.02, 0.42, 0.06, 1)
-      setBone(skeleton, 'mixamorig:RightArm', -0.06, -0.14, -0.74, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.02, -0.34, -0.04, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.12, 0, 0.18, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.02, 0, -0.12, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.22, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.18, 0, 0, 1)
+      pose('hips', -0.12, -0.08, 0)
+      pose('spine', -0.06 + drift, -0.04, 0)
+      pose('chest', 0 + drift * 0.6, -0.04, 0)
+      pose('upperChest', 0.02 + drift * 0.3, -0.02, 0)
+      pose('neck', 0.02, 0, 0)
+      pose('head', 0.12, -0.02, 0)
+      pose('clavicleL', 0.04, 0.04, 0.18)
+      pose('clavicleR', 0.02, -0.04, -0.16)
+      pose('upperArmL', -0.08, 0.08, 0.82)
+      pose('foreArmL', 0.04, 0.34, 0.04)
+      pose('handL', 0.08, 0.04, 0.12)
+      pose('upperArmR', -0.04, -0.14, -0.7)
+      pose('foreArmR', 0.04, -0.26, -0.04)
+      pose('handR', 0.08, -0.04, -0.12)
+      pose('thighL', -0.12, 0, 0.18)
+      pose('calfL', 0.22, 0, 0)
+      pose('footL', -0.08, 0, 0.08)
+      pose('thighR', -0.02, 0, -0.12)
+      pose('calfR', 0.18, 0, 0)
+      pose('footR', -0.08, 0, -0.08)
       break
     }
     case 'kamehameha': {
       const charge = easeOutCubic(clamp(phaseClock / 0.55, 0, 1))
       const tremor = Math.sin(time * 13.2) * (0.03 + charge * 0.04)
-      setBone(skeleton, 'mixamorig:Hips', -0.08 + tremor * 0.2, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.1 + charge * 0.24 + tremor, 0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.08 + charge * 0.16, 0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine2', 0.04 + charge * 0.08, 0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.14, 0.1, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 1.02 - charge * 0.5, 0.48, 1.52 - charge * 0.7, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.12, 1.22 - charge * 0.52, 0.14, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 1.02 - charge * 0.5, -0.48, -1.52 + charge * 0.7, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.12, -1.22 + charge * 0.52, -0.14, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.28, 0, 0.24, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.2, 0, -0.18, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.4, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.32, 0, 0, 1)
+      pose('hips', -0.08 + tremor * 0.2, 0, 0)
+      pose('spine', 0.12 + charge * 0.24 + tremor, 0.04, 0)
+      pose('chest', 0.12 + charge * 0.2, 0.08, 0)
+      pose('upperChest', 0.08 + charge * 0.12, 0.1, 0)
+      pose('neck', 0.04, 0.08, 0)
+      pose('head', -0.12, 0.12, 0)
+      pose('clavicleL', 0.18, 0.16, 0.6 - charge * 0.24)
+      pose('clavicleR', 0.18, -0.16, -0.6 + charge * 0.24)
+      pose('upperArmL', 1.02 - charge * 0.5, 0.38, 1.28 - charge * 0.58)
+      pose('foreArmL', 0.16, 1.1 - charge * 0.46, 0.1)
+      pose('handL', 0.28, 0.18, 0.4 - charge * 0.12)
+      pose('upperArmR', 1.02 - charge * 0.5, -0.38, -1.28 + charge * 0.58)
+      pose('foreArmR', 0.16, -1.1 + charge * 0.46, -0.1)
+      pose('handR', 0.28, -0.18, -0.4 + charge * 0.12)
+      pose('thighL', -0.28, 0, 0.24)
+      pose('calfL', 0.42, 0, 0)
+      pose('footL', -0.16, 0, 0.14)
+      pose('thighR', -0.2, 0, -0.18)
+      pose('calfR', 0.32, 0, 0)
+      pose('footR', -0.14, 0, -0.12)
       break
     }
   }
 }
 
 function animateJirenBones(
-  skeleton: Record<string, THREE.Bone>,
+  model: LoadedModel,
   time: number,
   phaseKind: PhaseKind,
   phaseClock: number,
 ): void {
+  const pose = (key: BoneKey, x: number, y: number, z: number): void => {
+    setRigBone(model, key, x, y, z, 1)
+  }
+
   const breathe = Math.sin(time * 2.4) * 0.04
-  setBone(skeleton, 'mixamorig:Hips', 0.02, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Spine', 0.06 + breathe, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Spine1', 0.03 + breathe * 0.5, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Spine2', 0.03, 0, 0, 1)
-  setBone(skeleton, 'mixamorig:Head', -0.08 + Math.sin(time * 1.8) * 0.04, Math.sin(time * 1.2) * 0.04, 0, 1)
+  const chestDrift = Math.sin(time * 4.6 + 0.4) * 0.04
+  const shoulderRoll = Math.sin(time * 5.8 + 0.9) * 0.06
+  const wristPulse = Math.sin(time * 8.8 + 0.3) * 0.08
+  const anklePulse = Math.sin(time * 6.2 + 1.1) * 0.06
+  pose('hips', 0.03 + chestDrift * 0.18, chestDrift * 0.16, chestDrift * 0.1)
+  pose('spine', 0.1 + breathe, chestDrift * 0.34, 0)
+  pose('chest', 0.08 + breathe * 0.6, chestDrift * 0.28, 0)
+  pose('upperChest', 0.06 + shoulderRoll * 0.14, chestDrift * 0.18, 0)
+  pose('neck', 0.03 + shoulderRoll * 0.05, chestDrift * 0.12, 0)
+  pose('head', -0.1 + Math.sin(time * 1.8) * 0.05, Math.sin(time * 1.2) * 0.05 + chestDrift * 0.18, shoulderRoll * 0.08)
+  pose('clavicleL', 0.03, 0.03, 0.12 + shoulderRoll * 0.24)
+  pose('clavicleR', 0.03, -0.03, -0.12 - shoulderRoll * 0.24)
+  pose('handL', 0.1, 0.04, 0.08 + wristPulse * 0.3)
+  pose('handR', 0.1, -0.04, -0.08 - wristPulse * 0.3)
+  pose('footL', -0.04 + anklePulse * 0.18, 0, 0.04)
+  pose('footR', -0.04 - anklePulse * 0.18, 0, -0.04)
 
   switch (phaseKind) {
     case 'transform': {
-      setBone(skeleton, 'mixamorig:Hips', -0.04, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.02 + breathe, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.04, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.02 + Math.sin(time * 1.1) * 0.02, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.46, 0.26, 1.02, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.16, 1.62, 0.08, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.46, -0.26, -1.02, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.16, -1.62, -0.08, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.12, 0, 0.1, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.12, 0, -0.1, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.15, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.15, 0, 0, 1)
+      const menace = Math.sin(phaseClock * 2.2) * 0.04
+      pose('hips', -0.04, 0, menace * 0.2)
+      pose('spine', 0.04 + breathe * 0.7, menace * 0.12, 0)
+      pose('chest', 0.07, menace * 0.1, 0)
+      pose('upperChest', 0.08, menace * 0.08, 0)
+      pose('neck', 0.04, menace * 0.06, 0)
+      pose('head', -0.04 + Math.sin(time * 1.1) * 0.03, menace * 0.1, menace * 0.08)
+      pose('clavicleL', 0.06, 0.1, 0.24)
+      pose('clavicleR', 0.06, -0.1, -0.24)
+      pose('upperArmL', 0.52, 0.24, 1.08)
+      pose('foreArmL', 0.22, 1.72, 0.14)
+      pose('handL', 0.18, 0.12, 0.22 + menace * 0.2)
+      pose('upperArmR', 0.52, -0.24, -1.08)
+      pose('foreArmR', 0.22, -1.72, -0.14)
+      pose('handR', 0.18, -0.12, -0.22 - menace * 0.2)
+      pose('thighL', -0.16, 0, 0.14)
+      pose('calfL', 0.18, 0, 0)
+      pose('footL', -0.04, 0, 0.1)
+      pose('thighR', -0.16, 0, -0.14)
+      pose('calfR', 0.18, 0, 0)
+      pose('footR', -0.04, 0, -0.1)
       break
     }
     case 'roam': {
       const stalk = Math.sin(phaseClock * 3.6)
       const shoulderSet = Math.sin(phaseClock * 2.1 + 0.7) * 0.06
-      setBone(skeleton, 'mixamorig:Hips', 0.02, -stalk * 0.06, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.12 + breathe + shoulderSet, -stalk * 0.12, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.08, -stalk * 0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.08, -stalk * 0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.32 + shoulderSet * 0.4, 0.34, 1.18 + Math.max(0, -stalk) * 0.18, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.12, 1.22, 0.24, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.46 - shoulderSet * 0.4, -0.26, -1.32 - Math.max(0, stalk) * 0.2, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.1, -0.92, -0.16, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.24 + stalk * 0.14, 0, 0.14, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.2 - stalk * 0.14, 0, -0.14, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.28 + Math.max(0, -stalk) * 0.22, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.28 + Math.max(0, stalk) * 0.22, 0, 0, 1)
+      const elbowSnap = Math.sin(phaseClock * 7.4 + 0.3) * 0.08
+      pose('hips', 0.04, -stalk * 0.1, stalk * 0.06)
+      pose('spine', 0.16 + breathe + shoulderSet, -stalk * 0.18, 0)
+      pose('chest', 0.16, -stalk * 0.16, 0)
+      pose('upperChest', 0.12, -stalk * 0.12, 0)
+      pose('neck', 0.05, -stalk * 0.06, 0)
+      pose('head', -0.1, -stalk * 0.1, shoulderSet * 0.18)
+      pose('clavicleL', 0.1, 0.1, 0.2 + Math.max(0, -stalk) * 0.18)
+      pose('clavicleR', 0.08, -0.1, -0.22 - Math.max(0, stalk) * 0.18)
+      pose('upperArmL', 0.38 + shoulderSet * 0.5, 0.36, 1.26 + Math.max(0, -stalk) * 0.24)
+      pose('foreArmL', 0.18, 1.34 + elbowSnap, 0.3)
+      pose('handL', 0.22, 0.12, 0.24 + elbowSnap * 0.5)
+      pose('upperArmR', 0.54 - shoulderSet * 0.5, -0.28, -1.42 - Math.max(0, stalk) * 0.28)
+      pose('foreArmR', 0.14, -1.04 - elbowSnap * 0.8, -0.2)
+      pose('handR', 0.2, -0.12, -0.24 - elbowSnap * 0.5)
+      pose('thighL', -0.3 + stalk * 0.2, 0, 0.18)
+      pose('calfL', 0.34 + Math.max(0, -stalk) * 0.3, 0, 0)
+      pose('footL', -0.18 + Math.max(0, -stalk) * 0.26, 0, 0.12)
+      pose('thighR', -0.24 - stalk * 0.2, 0, -0.18)
+      pose('calfR', 0.34 + Math.max(0, stalk) * 0.3, 0, 0)
+      pose('footR', -0.18 + Math.max(0, stalk) * 0.26, 0, -0.12)
       break
     }
     case 'approach': {
       const drive = easeInCubic(phaseClock / APPROACH_DURATION)
       const stride = Math.sin(phaseClock * 9.8)
-      setBone(skeleton, 'mixamorig:Hips', -0.02 + drive * 0.16, -0.06, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.18 + breathe + drive * 0.12, -0.12 + stride * 0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.12, -0.1 + stride * 0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.02, -0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.72 - Math.max(0, stride) * 0.3, 0.18, 1.46 - Math.max(0, stride) * 0.28, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0.06, 0.92, 0.08, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.2, -0.24, -1.42 - Math.max(0, -stride) * 0.36, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0.02, -0.48 - Math.max(0, -stride) * 0.22, -0.04, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.26 + stride * 0.2, 0, 0.14, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.16 - stride * 0.2, 0, -0.14, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.34 + Math.max(0, -stride) * 0.24, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.28 + Math.max(0, stride) * 0.24, 0, 0, 1)
+      const crush = Math.sin(phaseClock * 13.4) * 0.06
+      pose('hips', -0.04 + drive * 0.2, -0.1, stride * 0.06)
+      pose('spine', 0.22 + breathe + drive * 0.18, -0.18 + stride * 0.08, 0)
+      pose('chest', 0.22, -0.16 + stride * 0.08, 0)
+      pose('upperChest', 0.16, -0.12 + stride * 0.04, 0)
+      pose('neck', 0.06, -0.08, 0)
+      pose('head', -0.04, -0.12 + crush, crush * 0.4)
+      pose('clavicleL', 0.14, 0.06, 0.28)
+      pose('clavicleR', 0.12, -0.06, -0.22)
+      pose('upperArmL', 0.82 - Math.max(0, stride) * 0.34, 0.18, 1.54 - Math.max(0, stride) * 0.34)
+      pose('foreArmL', 0.12, 0.84 + crush, 0.12)
+      pose('handL', 0.18, 0.08, 0.18 + crush * 0.5)
+      pose('upperArmR', 0.26, -0.26, -1.54 - Math.max(0, -stride) * 0.42)
+      pose('foreArmR', 0.06, -0.36 - Math.max(0, -stride) * 0.3, -0.08)
+      pose('handR', 0.16, -0.08, -0.18 - crush * 0.5)
+      pose('thighL', -0.3 + stride * 0.24, 0, 0.18)
+      pose('calfL', 0.42 + Math.max(0, -stride) * 0.3, 0, 0)
+      pose('footL', -0.22 + Math.max(0, -stride) * 0.3, 0, 0.12)
+      pose('thighR', -0.18 - stride * 0.24, 0, -0.18)
+      pose('calfR', 0.36 + Math.max(0, stride) * 0.3, 0, 0)
+      pose('footR', -0.2 + Math.max(0, stride) * 0.28, 0, -0.12)
       break
     }
     case 'clash': {
       const punch = Math.sin(phaseClock * 11.2)
       const torque = Math.sin(phaseClock * 5.6 + 0.8)
-      setBone(skeleton, 'mixamorig:Hips', 0.02, -torque * 0.1, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.24, 0.2 * punch, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.18, 0.18 * punch, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', 0.02, 0.08 * punch, 0, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.26 - Math.max(0, punch) * 0.72, -0.22 * punch, -1.52, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0, -0.54 - Math.max(0, punch) * 0.78, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.42 - Math.max(0, -punch) * 0.74, 0.18 * punch, 1.48, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0, 0.72 + Math.max(0, -punch) * 0.72, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.28 + punch * 0.14, 0, 0.18, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.22 - punch * 0.14, 0, -0.18, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.38 + Math.max(0, punch) * 0.16, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.38 + Math.max(0, -punch) * 0.16, 0, 0, 1)
+      const recoil = Math.sin(phaseClock * 18.4 + 0.2) * 0.08
+      pose('hips', 0.06, -torque * 0.16, punch * 0.06)
+      pose('spine', 0.32, 0.28 * punch, 0)
+      pose('chest', 0.3, 0.26 * punch, 0)
+      pose('upperChest', 0.22, 0.24 * punch, 0)
+      pose('neck', 0.08, 0.12 * punch, 0)
+      pose('head', 0.04, 0.14 * punch + recoil * 0.4, recoil * 0.4)
+      pose('clavicleL', 0.16, 0.1, 0.26 + Math.max(0, -punch) * 0.18)
+      pose('clavicleR', 0.16, -0.1, -0.26 - Math.max(0, punch) * 0.18)
+      pose('upperArmR', 0.22 - Math.max(0, punch) * 0.84, -0.26 * punch, -1.66)
+      pose('foreArmR', 0.02, -0.42 - Math.max(0, punch) * 0.94, -0.04)
+      pose('handR', 0.18, -0.1, -0.28 - Math.max(0, punch) * 0.18)
+      pose('upperArmL', 0.46 - Math.max(0, -punch) * 0.86, 0.22 * punch, 1.62)
+      pose('foreArmL', 0.02, 0.58 + Math.max(0, -punch) * 0.88, 0.04)
+      pose('handL', 0.18, 0.1, 0.28 + Math.max(0, -punch) * 0.18)
+      pose('thighL', -0.34 + punch * 0.18, 0, 0.2)
+      pose('calfL', 0.44 + Math.max(0, punch) * 0.2, 0, 0)
+      pose('footL', -0.22 + Math.max(0, punch) * 0.16, 0, 0.14)
+      pose('thighR', -0.28 - punch * 0.18, 0, -0.2)
+      pose('calfR', 0.44 + Math.max(0, -punch) * 0.2, 0, 0)
+      pose('footR', -0.22 + Math.max(0, -punch) * 0.16, 0, -0.14)
       break
     }
     case 'separate': {
       const recover = 1 - easeOutCubic(phaseClock / SEPARATE_DURATION)
-      setBone(skeleton, 'mixamorig:Hips', -0.12, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', -0.12 + breathe * 0.6, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', -0.06 + recover * 0.04, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', 0.08, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', -0.1, 0.08, 0.88, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0, 0.46, 0, 1)
-      setBone(skeleton, 'mixamorig:RightArm', -0.1, -0.08, -0.88, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0, -0.46, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.16, 0, 0.18, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.16, 0, -0.18, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.22, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.22, 0, 0, 1)
+      const shake = Math.sin(phaseClock * 11.6) * recover * 0.08
+      pose('hips', -0.14, shake * 0.2, shake * 0.2)
+      pose('spine', -0.16 + breathe * 0.8, shake * 0.18, 0)
+      pose('chest', -0.1 + recover * 0.06, shake * 0.14, 0)
+      pose('upperChest', -0.04 + recover * 0.04, shake * 0.1, 0)
+      pose('neck', 0.06, shake * 0.06, 0)
+      pose('head', 0.1, shake * 0.08, shake * 0.2)
+      pose('clavicleL', 0.06, 0.06, 0.18)
+      pose('clavicleR', 0.06, -0.06, -0.18)
+      pose('upperArmL', -0.12, 0.1, 1)
+      pose('foreArmL', 0.04, 0.58, 0.02)
+      pose('handL', 0.12, 0.08, 0.18 + shake * 0.3)
+      pose('upperArmR', -0.12, -0.1, -1)
+      pose('foreArmR', 0.04, -0.58, -0.02)
+      pose('handR', 0.12, -0.08, -0.18 - shake * 0.3)
+      pose('thighL', -0.2, 0, 0.22)
+      pose('calfL', 0.28, 0, 0)
+      pose('footL', -0.12, 0, 0.1)
+      pose('thighR', -0.2, 0, -0.22)
+      pose('calfR', 0.28, 0, 0)
+      pose('footR', -0.12, 0, -0.1)
       break
     }
     case 'kamehameha': {
       const charge = smoothstep01(phaseClock / 0.5)
       const recoil = Math.sin(time * 8.2) * 0.05
-      setBone(skeleton, 'mixamorig:Hips', -0.12, -0.04, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine', 0.24 + recoil, -0.16, 0, 1)
-      setBone(skeleton, 'mixamorig:Spine1', 0.18 + recoil * 0.6, -0.12, 0, 1)
-      setBone(skeleton, 'mixamorig:Head', -0.04, -0.08, 0, 1)
-      setBone(skeleton, 'mixamorig:RightArm', 0.96 + recoil, -0.38, -1.68 + charge * 0.08, 1)
-      setBone(skeleton, 'mixamorig:RightForeArm', 0, -0.34 + charge * 0.14, 0, 1)
-      setBone(skeleton, 'mixamorig:LeftArm', 0.28, 0.24, 1.08, 1)
-      setBone(skeleton, 'mixamorig:LeftForeArm', 0, 0.88, 0.24, 1)
-      setBone(skeleton, 'mixamorig:LeftUpLeg', -0.3, 0, 0.22, 1)
-      setBone(skeleton, 'mixamorig:RightUpLeg', -0.22, 0, -0.18, 1)
-      setBone(skeleton, 'mixamorig:LeftLeg', 0.42, 0, 0, 1)
-      setBone(skeleton, 'mixamorig:RightLeg', 0.32, 0, 0, 1)
+      const surge = Math.sin(time * 14.4) * (0.04 + charge * 0.05)
+      pose('hips', -0.16, -0.06, surge * 0.3)
+      pose('spine', 0.3 + recoil, -0.2, 0)
+      pose('chest', 0.28 + recoil * 0.7, -0.16, 0)
+      pose('upperChest', 0.18, -0.12, 0)
+      pose('neck', 0.08, -0.06, 0)
+      pose('head', -0.06, -0.12 + surge * 0.4, surge * 0.2)
+      pose('clavicleL', 0.14, 0.06, 0.18)
+      pose('clavicleR', 0.24, -0.14, -0.32)
+      pose('upperArmR', 1.08 + recoil, -0.42, -1.78 + charge * 0.1)
+      pose('foreArmR', 0.06, -0.24 + charge * 0.18, 0)
+      pose('handR', 0.2, -0.12, -0.24 - surge * 0.3)
+      pose('upperArmL', 0.34, 0.26, 1.18)
+      pose('foreArmL', 0.04, 1.02, 0.28)
+      pose('handL', 0.16, 0.12, 0.2 + surge * 0.2)
+      pose('thighL', -0.34, 0, 0.24)
+      pose('calfL', 0.48, 0, 0)
+      pose('footL', -0.18, 0, 0.14)
+      pose('thighR', -0.26, 0, -0.2)
+      pose('calfR', 0.38, 0, 0)
+      pose('footR', -0.16, 0, -0.12)
       break
     }
   }
@@ -1019,10 +1417,12 @@ function animateJirenBones(
 type LoadedModel = {
   scene: THREE.Group
   mixer: THREE.AnimationMixer
-  skeleton: Record<string, THREE.Bone>
+  rigTargets: Record<string, Array<{ bone: THREE.Bone; rest: THREE.Quaternion }>>
+  rig: RigProfile
   normScale: number
+  modelPixelHeight: number
   idleAction: THREE.AnimationAction | null
-  hairMeshes: THREE.Mesh[]
+  tintMeshes: THREE.Mesh[]
   allMeshes: THREE.Mesh[]
 }
 
@@ -1035,10 +1435,33 @@ let gokuModel: LoadedModel | null = null
 let jirenModel: LoadedModel | null = null
 let modelsLoaded = false
 
-const MODEL_PIXEL_HEIGHT = 160
+function resolveBundledAssetUrl(requestedUrl: string, assetMap: Record<string, string>): string {
+  const cleaned = requestedUrl.split('#')[0]!.split('?')[0]!
+  if (assetMap[cleaned] !== undefined) return assetMap[cleaned]!
 
-async function loadModel(url: string): Promise<LoadedModel> {
-  const loader = new GLTFLoader()
+  let pathname = cleaned
+  try {
+    pathname = new URL(cleaned, window.location.href).pathname
+  } catch {
+    pathname = cleaned
+  }
+
+  if (assetMap[pathname] !== undefined) return assetMap[pathname]!
+
+  for (const [key, bundledUrl] of Object.entries(assetMap)) {
+    if (cleaned.endsWith(key) || pathname.endsWith(key)) return bundledUrl
+  }
+
+  return requestedUrl
+}
+
+async function loadModel(url: string, rig: RigProfile, assetMap?: Record<string, string>): Promise<LoadedModel> {
+  let manager: THREE.LoadingManager | undefined
+  if (assetMap !== undefined) {
+    manager = new THREE.LoadingManager()
+    manager.setURLModifier((requestedUrl) => resolveBundledAssetUrl(requestedUrl, assetMap))
+  }
+  const loader = new GLTFLoader(manager)
   const gltf = await loader.loadAsync(url)
   const modelScene = gltf.scene
 
@@ -1056,15 +1479,20 @@ async function loadModel(url: string): Promise<LoadedModel> {
   // Offset the model inside the pivot so its center is at the pivot origin
   modelScene.position.set(-center.x, -center.y, -center.z)
 
-  // Build bone lookup — strip numeric suffixes from Mixamo names
-  // e.g. "mixamorig:LeftArm_09" -> keyed as both full name and "mixamorig:LeftArm"
-  const skeleton: Record<string, THREE.Bone> = {}
+  // Build bone lookup — some game exports duplicate the same skeleton per mesh group,
+  // so each semantic bone key can fan out to multiple bone/rest pairs.
+  const rigTargets: Record<string, Array<{ bone: THREE.Bone; rest: THREE.Quaternion }>> = {}
   modelScene.traverse((child) => {
     if (child instanceof THREE.Bone) {
-      skeleton[child.name] = child
+      const registerBone = (key: string): void => {
+        const targets = rigTargets[key] ?? []
+        targets.push({ bone: child, rest: child.quaternion.clone() })
+        rigTargets[key] = targets
+      }
+      registerBone(child.name)
       const base = child.name.replace(/_0?\d+$/, '')
       if (base !== child.name) {
-        skeleton[base] = child
+        registerBone(base)
       }
     }
   })
@@ -1075,15 +1503,15 @@ async function loadModel(url: string): Promise<LoadedModel> {
   // Start playing the baked animation immediately — this is the only
   // reliable way to get the model moving. We keep it running always.
   let idleAction: THREE.AnimationAction | null = null
-  if (gltf.animations.length > 0) {
+  if (rig.playBuiltInAnimation && gltf.animations.length > 0) {
     const clip = gltf.animations[0]!
     idleAction = mixer.clipAction(clip)
     idleAction.setLoop(THREE.LoopRepeat, Infinity)
     idleAction.play()
   }
 
-  // Apply toon shading — keep original textures, collect hair and all meshes
-  const hairMeshes: THREE.Mesh[] = []
+  // Apply toon shading and collect meshes used for UI tinting.
+  const tintMeshes: THREE.Mesh[] = []
   const allMeshes: THREE.Mesh[] = []
   modelScene.traverse((child) => {
     if (child instanceof THREE.Mesh) {
@@ -1093,26 +1521,44 @@ async function loadModel(url: string): Promise<LoadedModel> {
       })
       if (oldMat.map) toonMat.map = oldMat.map
       if (oldMat.color) toonMat.color.copy(oldMat.color)
+      toonMat.userData['baseColor'] = toonMat.color.clone()
       child.material = toonMat
       child.castShadow = false
       child.receiveShadow = false
       allMeshes.push(child)
-      // Identify hair meshes by name (Goku's hair mesh is "Hair_tex4.png_0" or similar)
       const name = (child.name || '').toLowerCase()
       const parentName = (child.parent?.name || '').toLowerCase()
-      if (name.includes('hair') || parentName.includes('hair')) {
-        hairMeshes.push(child)
+      if (
+        rig.uiTintMode === 'global' ||
+        (rig.uiTintMode === 'hair' && (name.includes('hair') || parentName.includes('hair'))) ||
+        (rig.uiTintMode === 'head' && (name.includes('head') || parentName.includes('head')))
+      ) {
+        tintMeshes.push(child)
       }
     }
   })
 
-  return { scene: pivot, mixer, skeleton, normScale, idleAction, hairMeshes, allMeshes }
+  if (rig.uiTintMode !== 'none' && tintMeshes.length === 0) {
+    tintMeshes.push(...allMeshes)
+  }
+
+  return {
+    scene: pivot,
+    mixer,
+    rigTargets,
+    rig,
+    normScale,
+    modelPixelHeight: rig.modelPixelHeight,
+    idleAction,
+    tintMeshes,
+    allMeshes,
+  }
 }
 
 async function loadModels(): Promise<void> {
   const [gokuLoaded, jirenLoaded] = await Promise.all([
-    loadModel(gokuModelUrl),
-    loadModel(jirenModelUrl),
+    loadModel(gokuModelUrl, GOKU_RIG_PROFILE, GOKU_MODEL_ASSETS),
+    loadModel(jirenModelUrl, JIREN_RIG_PROFILE, JIREN_MODEL_ASSETS),
   ])
 
   gokuModel = gokuLoaded
@@ -1134,6 +1580,7 @@ function updateModelTransform(
   wrapper: THREE.Group,
   fighter: Fighter,
   normScale: number,
+  modelPixelHeight: number,
   facingRight: boolean,
   drawScale: number,
   bodyLean: number,
@@ -1148,13 +1595,14 @@ function updateModelTransform(
 
   wrapper.position.set(worldX, worldY, 0)
 
-  // Scale: normScale * MODEL_PIXEL_HEIGHT * drawScale
-  const s = normScale * MODEL_PIXEL_HEIGHT * drawScale
+  // Scale: normalized model size * desired on-screen pixel height * pose scale.
+  const s = normScale * modelPixelHeight * drawScale
   const flipX = facingRight ? 1 : -1
   wrapper.scale.set(s * flipX, s, s)
 
-  // Body lean
-  wrapper.rotation.set(0, 0, -bodyLean * flipX)
+  const bank = clamp(fighter.vy / 2600, -0.12, 0.12)
+  const yaw = clamp(fighter.vx / 1800, -0.16, 0.16) * flipX
+  wrapper.rotation.set(bank, yaw, -bodyLean * flipX + yaw * 0.2)
 }
 
 // ---------------------------------------------------------------------------
@@ -1696,8 +2144,6 @@ function render(now: number): boolean {
   if (modelsLoaded && gokuModel !== null && jirenModel !== null) {
     const gokuFacesRight = goku.x < jiren.x
 
-    // Keep a little of the baked clip for secondary motion, then override
-    // the key combat bones so the choreography reads cleanly.
     gokuModel.mixer.update(dt)
     if (gokuModel.idleAction !== null) {
       const speed = phase.kind === 'clash' ? 0.7
@@ -1708,25 +2154,26 @@ function render(now: number): boolean {
       gokuModel.idleAction.timeScale = speed
     }
 
-    animateGokuBones(gokuModel.skeleton, timeSeconds, phase.kind, phaseTime)
-    animateJirenBones(jirenModel.skeleton, timeSeconds, phase.kind, phaseTime)
+    animateGokuBones(gokuModel, timeSeconds, phase.kind, phaseTime)
+    animateJirenBones(jirenModel, timeSeconds, phase.kind, phaseTime)
 
     // --- Ultra Instinct hair transform ---
-    // During transform phase, Goku's hair goes from dark to silver/white.
-    // uiProgress tracks the transformation (0 = base, 1 = full UI).
     const uiProgress = clamp(gokuState.uiProgress, 0, 1)
-    const silverWhite = new THREE.Color().lerpColors(
+    const uiTint = new THREE.Color().lerpColors(
       new THREE.Color(0x1c2438), // dark base hair
       new THREE.Color(0xdce8ff), // silver UI hair
       uiProgress,
     )
-    for (const hairMesh of gokuModel.hairMeshes) {
-      const mat = hairMesh.material as THREE.MeshToonMaterial
-      mat.color.copy(silverWhite)
-      // Add slight emissive glow when transformed
+    const tintStrength = gokuModel.rig.uiTintMode === 'global' ? uiProgress * 0.22 : uiProgress
+    for (const tintMesh of gokuModel.tintMeshes) {
+      const mat = tintMesh.material as THREE.MeshToonMaterial
+      const baseColor = mat.userData['baseColor'] instanceof THREE.Color
+        ? mat.userData['baseColor']
+        : new THREE.Color(0xffffff)
+      mat.color.copy(baseColor).lerp(uiTint, tintStrength)
       if (uiProgress > 0.5) {
         mat.emissive = new THREE.Color(0x6688bb)
-        mat.emissiveIntensity = (uiProgress - 0.5) * 0.4
+        mat.emissiveIntensity = (uiProgress - 0.5) * (gokuModel.rig.uiTintMode === 'global' ? 0.22 : 0.4)
       } else {
         mat.emissiveIntensity = 0
       }
@@ -1737,6 +2184,7 @@ function render(now: number): boolean {
       gokuWrapper,
       goku,
       gokuModel.normScale,
+      gokuModel.modelPixelHeight,
       gokuFacesRight,
       gokuState.drawScale,
       gokuState.bodyLean,
@@ -1749,6 +2197,7 @@ function render(now: number): boolean {
       jirenWrapper,
       jiren,
       jirenModel.normScale,
+      jirenModel.modelPixelHeight,
       !gokuFacesRight,
       jirenState.drawScale,
       jirenState.bodyLean,
